@@ -1,6 +1,7 @@
 ﻿/*
 
 Copyright (c) 2010 Nik Kalyani nik@kalyani.com http://www.kalyani.com
+Copyright (c) 2017 Gabriel Maia gabriel@tny.im https://gbl08ma.github.io
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -129,6 +130,14 @@ THE SOFTWARE.
             $(el).children("ul").each(function (index) {
                 var ul = $(this);
 
+                var reverseMarkersLine = $(ul).attr("data-reverseMarkers");
+                if (reverseMarkersLine === undefined)
+                    reverseMarkersLine = reverseMarkers;
+                else if (reverseMarkersLine.toLowerCase() == "false")
+                    reverseMarkersLine = false;
+                else
+                    reverseMarkersLine = true;
+
                 var color = $(ul).attr("data-color");
                 if (color === undefined) color = "#000000";
 
@@ -146,10 +155,8 @@ THE SOFTWARE.
                 }
 
                 var lineLabel = $(ul).attr("data-label");
-                if (lineLabel === undefined)
-                    lineLabel = "Line " + index;
-
-                lineLabels[lineLabels.length] = {label: lineLabel, color: color};
+                if (lineLabel !== undefined)
+                    lineLabels[lineLabels.length] = {label: lineLabel, color: color};
 
                 var nodes = [];
                 $(ul).children("li").each(function () {
@@ -193,7 +200,7 @@ THE SOFTWARE.
                     nodes[nodes.length] = { x: x, y:y, direction: dir, marker: marker, markerInfo: markerInfo, link: link, title: title, label: label, labelPos: labelPos};
                 });
                 if (nodes.length > 0)
-                    self._drawLine(el, scale, rows, columns, color, (lineTextClass != "" ? lineTextClass : textClass), lineWidth, nodes, reverseMarkers);
+                    self._drawLine(el, scale, rows, columns, color, (lineTextClass != "" ? lineTextClass : textClass), lineWidth, nodes, reverseMarkersLine);
                 $(ul).remove();
             });
 
@@ -377,11 +384,11 @@ THE SOFTWARE.
                 topOffset = offset * 2;
                 break;
             case "w":
-                pos = "text-align: right; margin:0 " + offset + "px 0 -" + (100 + offset) + "px";
+                pos = "text-align: right; margin:6 " + offset + "px 0 -" + (100 + offset) + "px";
                 topOffset = offset;
                 break;
             case "e":
-                pos = "text-align: left; margin:0 0 0 " + offset + "px";
+                pos = "text-align: left; margin:6 0 0 " + offset + "px";
                 topOffset = offset;
                 break;
             case "s":
