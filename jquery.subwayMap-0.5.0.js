@@ -61,8 +61,19 @@ THE SOFTWARE.
     _getCanvasLayer: function (el, overlay) {
         this.layer++;
         var canvas = $("<canvas style='position:absolute;z-Index:" + ((overlay ? 2000 : 1000) + this.layer) + "' width='" + this.options.pixelWidth + "' height='" + this.options.pixelHeight + "'></canvas>");
+        var context = canvas[0].getContext("2d");
+        var ratio = 3;
+        var width = canvas[0].width ||
+                    canvas[0].clientWidth;
+        var height = canvas[0].height ||
+                     canvas[0].clientHeight;
+        canvas[0].width = Math.round(width * ratio);
+        canvas[0].height = Math.round(height * ratio);
+        canvas[0].style.width = width + 'px';
+        canvas[0].style.height = height + 'px';
+        context.scale(ratio, ratio);
         el.append(canvas);
-        return (canvas[0].getContext("2d"));
+        return context;
     },
     _render: function (el) {
 
@@ -312,7 +323,7 @@ THE SOFTWARE.
 
     },
     _drawMarker: function (el, ctx, scale, color, textClass, width, data, reverseMarkers) {
-
+        var style = "";
         if (data.label == "") return;
         if (data.marker == "") data.marker = "station";
 
@@ -338,10 +349,10 @@ THE SOFTWARE.
             case "interchange":
             case "@interchange":
                 ctx.lineWidth = width;
-                if (data.markerInfo == "")
+                if (data.markerInfo == "") {
                     ctx.arc(x, y, width * 0.7, 0, Math.PI * 2, true);
-                else
-                {
+                    style = "style='width:" + (width * 2.5) + "px;height:" + (width * 2.5) + "px; position:absolute;top:" + (y-2) + "px;left:" + (x-2) + "px;z-index:3000;'";
+                } else {
                     var mDir = data.markerInfo.substr(0,1).toLowerCase();
                     var mSize = parseInt(data.markerInfo.substr(1,10));
                     if (((mDir == "v") || (mDir == "h")) && (mSize > 1))
@@ -350,22 +361,35 @@ THE SOFTWARE.
                         {
                             ctx.arc(x, y, width * 0.7,290 * Math.PI/180, 250 * Math.PI/180, false);
                             ctx.arc(x, y-(width*mSize), width * 0.7,110 * Math.PI/180, 70 * Math.PI/180, false);
+                            style = "style='width:" + (width * 2.5) + "px;height:" + (width * 2.5 * 1.8) + "px; position:absolute;top:" + (y-2) + "px;left:" + (x-2) + "px;z-index:3000;'";
                         }
                         else
                         {
                             ctx.arc(x, y, width * 0.7,20 * Math.PI/180, 340 * Math.PI/180, false);
                             ctx.arc(x+(width*mSize), y, width * 0.7,200 * Math.PI/180, 160 * Math.PI/180, false);
+                            style = "style='width:" + (width * 2.5 * 1.8) + "px;height:" + (width * 2.5) + "px; position:absolute;top:" + (y-2) + "px;left:" + (x-2) + "px;z-index:3000;'";
                         }
                     }
-                    else
+                    else {
                         ctx.arc(x, y, width * 0.7, 0, Math.PI * 2, true);
+                        style = "style='width:" + (width * 2.5) + "px;height:" + (width * 2.5) + "px; position:absolute;top:" + (y-2) + "px;left:" + (x-2) + "px;z-index:3000;'";
+                    }
                 }
                 break;
             case "station":
             case "@station":
                 ctx.lineWidth = width/2;
                 ctx.arc(x, y, width/2, 0, Math.PI * 2, true);
+
+                style = "style='width:" + (width + ctx.lineWidth) + "px;height:" + (width + ctx.lineWidth) + "px; position:absolute;top:" + (y+2) + "px;left:" + (x+2) + "px;z-index:3000;'";
                 break;
+        }
+        if(style != "") {
+            if (data.link != "")
+                $("<a " + style + " title='" + data.title.replace(/\\n/g,"<br />") + "' href='" + data.link + "'></a>").appendTo(el);
+            else
+                $("<span " + style + ">" + data.label.replace(/\\n/g,"<br />") + "</span>").appendTo(el);
+            style = "";
         }
         ctx.closePath();
         ctx.stroke();
@@ -410,12 +434,11 @@ THE SOFTWARE.
                 topOffset = offsetDiag;
                 break;
         }
-        var style = (textClass != "" ? "class='" + textClass + "' " : "") + "style='" + (textClass == "" ? "font-size:8pt;font-family:Verdana,Arial,Helvetica,Sans Serif;text-decoration:none;" : "") + "width:100px;" + (pos != "" ? pos : "") + ";position:absolute;top:" + (y + el.offset().top - (topOffset > 0 ? topOffset : 0)) + "px;left:" + (x + el.offset().left) + "px;z-index:3000;'";
+        style = (textClass != "" ? "class='" + textClass + "' " : "") + "style='" + (textClass == "" ? "font-size:8pt;font-family:Verdana,Arial,Helvetica,Sans Serif;text-decoration:none;" : "") + "width:100px;" + (pos != "" ? pos : "") + ";position:absolute;top:" + (y + el.offset().top - (topOffset > 0 ? topOffset : 0)) + "px;left:" + (x + el.offset().left) + "px;z-index:3000;'";
         if (data.link != "")
-            $("<a " + style + " title='" + data.title.replace(/\\n/g,"<br />") + "' href='" + data.link + "' target='_new'>" + data.label.replace(/\\n/g,"<br />") + "</span>").appendTo(el);
+            $("<a " + style + " title='" + data.title.replace(/\\n/g,"<br />") + "' href='" + data.link + "'>" + data.label.replace(/\\n/g,"<br />") + "</span>").appendTo(el);
         else
             $("<span " + style + ">" + data.label.replace(/\\n/g,"<br />") + "</span>").appendTo(el);
-
     },
     _drawGrid: function (el, scale, gridNumbers) {
 

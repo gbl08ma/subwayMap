@@ -14,8 +14,6 @@
     
     .subway-map {
         margin: 0;
-        width: 500px;
-        height: 410px;
         background-color: white;
     }
     /* Text labels */
@@ -27,9 +25,12 @@
     }
     
     #legend {
+        position: absolute;
+        left: 40px;
+        top: 410px;
         float: left;
         width: 250px;
-        height: 400px;
+        height: 250px;
     }
     
     #legend div {
@@ -47,123 +48,135 @@
 </head>
 
 <body class="">
-    <div class="subway-map" data-columns="44" data-rows="30" data-cellSize="26" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8" style="background-color: transparent;">
+    <div class="subway-map" data-columns="35" data-rows="25" data-cellSize="26" data-legendId="legend" data-textClass="text" data-gridNumbers="true" data-grid="false" data-lineWidth="8" style="background-color: transparent;">
         <ul data-color="#ddd" data-label="Comboios" data-reverseMarkers="defined">
-            <li data-coords="8,9"></li> <!-- término noroeste -->
-            <li data-coords="10,9"></li> <!-- Reboleira -->
-            <li data-coords="13.85,13" data-labelPos="W" data-marker="@station"><a href="http://example.com/">Benfica</a></li>
-            <li data-coords="16,15"></li>
-            <li data-coords="21.5,15" data-labelPos="SW"><a href="http://example.com/">Sete Rios</a></li>
-            <li data-coords="28,15"></li> <!-- Entrecampos -->
-            <li data-coords="33,15" data-labelPos="E"><a href="http://example.com/">Roma-Areeiro</a></li> <!-- Roma-Areeiro -->
-            <li data-coords="33.3,15"></li>
-            <li data-coords="36.3,18"></li>
-            <li data-coords="36.5,18" data-labelPos="S"><a href="http://example.com/">Chelas</a></li>
-            <li data-coords="38.7,18" data-labelPos="S" data-marker="@station"><a href="http://example.com/">Marvila</a></li>
-            <li data-coords="39.5,18"></li>
-            <li data-coords="40.5,17" data-labelPos="E" data-dir="E"><a href="http://example.com/">Braço de Prata</a></li> <!-- Braço de Prata -->
-            <li data-coords="40.5,11"></li> <!-- Oriente -->
-            <li data-coords="40.5,7"></li> <!-- término norte -->
+            <li data-coords="1,6"></li> <!-- término noroeste -->
+            <li data-coords="3,6"></li> <!-- Reboleira -->
+            <li data-coords="6.85,10" data-labelPos="W" data-marker="@station"><a href="#">Benfica</a></li>
+            <li data-coords="9,12"></li>
+            <li data-coords="14.5,12" data-labelPos="SW"><a href="#">Sete Rios</a></li>
+            <li data-coords="21,12"></li> <!-- Entrecampos -->
+            <li data-coords="26,12" data-labelPos="E"><a href="#">Roma-Areeiro</a></li> <!-- Roma-Areeiro -->
+            <li data-coords="26.3,12"></li>
+            <li data-coords="29.3,15"></li>
+            <li data-coords="29.5,15" data-labelPos="S"><a href="#">Chelas</a></li>
+            <li data-coords="31.7,15" data-labelPos="S" data-marker="@station"><a href="#">Marvila</a></li>
+            <li data-coords="32.5,15"></li>
+            <li data-coords="33.5,14" data-labelPos="E" data-dir="E"><a href="#">Braço de Prata</a></li> <!-- Braço de Prata -->
+            <li data-coords="33.5,8"></li> <!-- Oriente -->
+            <li data-coords="33.5,4"></li> <!-- término norte -->
         </ul>
         <ul data-color="#ddd" data-reverseMarkers="defined">
-            <li data-coords="38,26.75"></li> <!-- Santa Apolónia -->
-            <li data-coords="39.5,26.75"></li>
-            <li data-coords="40.5,25.5" data-dir="E"></li>
-            <li data-coords="40.5,11"></li> <!-- Oriente -->
+            <li data-coords="31,23.75"></li> <!-- Santa Apolónia -->
+            <li data-coords="32.5,23.75"></li>
+            <li data-coords="33.5,22.5" data-dir="E"></li>
+            <li data-coords="33.5,8"></li> <!-- Oriente -->
         </ul>
         <ul data-color="#ddd" data-reverseMarkers="defined">
-            <li data-coords="30,26.75"></li> <!-- Cais do Sodré -->
-            <li data-coords="25,26.75" data-labelPos="N"><a href="http://example.com/">Santos</a></li>
-            <li data-coords="20.5,26.75" data-labelPos="NE"><a href="http://example.com/">Alcântara-Mar</a></li>
-            <li data-coords="15,26.75" data-labelPos="N"><a href="http://example.com/">Belém</a></li>
-            <li data-coords="8,26.75"></li> <!-- término sudoeste -->
+            <li data-coords="23,23.75"></li> <!-- Cais do Sodré -->
+            <li data-coords="18,23.75" data-labelPos="N"><a href="#">Santos</a></li>
+            <li data-coords="13.5,23.75" data-labelPos="NE"><a href="#">Alcântara-Mar</a></li>
+            <li data-coords="8,23.75" data-labelPos="N"><a href="#">Belém</a></li>
+            <li data-coords="1,23.75"></li> <!-- término sudoeste -->
         </ul>
         <ul data-color="#ddd" data-reverseMarkers="defined">
-            <li data-coords="10,9"></li> <!-- Reboleira -->
-            <li data-coords="16,15"></li>
-            <li data-coords="25,23.8"></li>
-            <li data-coords="30.5,23.8"></li> <!-- Restauradores -->
+            <li data-coords="3,6"></li> <!-- Reboleira -->
+            <li data-coords="9,12"></li>
+            <li data-coords="18,20.8"></li>
+            <li data-coords="23.5,20.8"></li> <!-- Restauradores -->
         </ul>
         <ul data-color="#ddd" data-reverseMarkers="defined">
-            <li data-coords="21.5,15"></li> <!-- Sete Rios -->
-            <li data-coords="20.5,16" data-dir="W"></li>
-            <li data-coords="20.5,19.3" data-labelPos="E"><a href="http://example.com/">Campolide</a></li>
-            <li data-coords="20.5,25.5" data-labelPos="E"><a href="http://example.com/">Alcântara-Terra</a></li>
+            <li data-coords="14.5,12"></li> <!-- Sete Rios -->
+            <li data-coords="13.5,13" data-dir="W"></li>
+            <li data-coords="13.5,16.3" data-labelPos="E"><a href="#">Campolide</a></li>
+            <li data-coords="13.5,22.5" data-labelPos="E"><a href="#">Alcântara-Terra</a></li>
         </ul>
         <ul data-color="#5082C3" data-label="Linha Azul">
-            <li data-coords="10,9" data-labelPos="NW" data-marker="interchange"><a href="http://example.com/">Reboleira</a></li>
-            <li data-coords="12.25,9" data-labelPos="S"><a href="http://example.com/">Amadora-Este</a></li>
-            <li data-coords="14.5,9" data-labelPos="N"><a href="http://example.com/">Alfornelos</a></li>
-            <li data-coords="16,9" data-dir="NE"></li> 
-            <li data-coords="16.35,9.1" data-labelPos="NE" data-marker="@station"><a href="http://example.com/">Pontinha</a></li> 
-            <li data-coords="17.55,10.15" data-labelPos="NE" data-marker="@station"><a href="http://example.com/">Carnide</a></li>
-            <li data-coords="18.63,11.3" data-labelPos="NE" data-marker="@station"><a href="http://example.com/">Colégio Militar-Luz</a></li> 
-            <li data-coords="19.83,12.55" data-labelPos="NE" data-marker="@station"><a href="http://example.com/">Alto dos Moinhos</a></li> 
-            <li data-coords="20.87,13.65" data-labelPos="NE" data-marker="@station"><a href="http://example.com/">Laranjeiras</a></li> 
-            <li data-coords="21.5,15" data-labelPos="NE" data-marker="@interchange" data-markerInfo="h2"><a href="http://example.com/">Jardim Zoológico</a></li> 
-            <li data-coords="23.55,16.5" data-labelPos="SW" data-marker="@station"><a href="http://example.com/">Praça de Espanha</a></li>            
-            <li data-coords="26.4,19.5" data-labelPos="SW" data-marker="@station"><a href="http://example.com/">Parque</a></li>           
-            <li data-coords="29.15,22.4" data-labelPos="NE" data-marker="@station"><a href="http://example.com/">Avenida</a></li>           
-            <li data-coords="30.5,23.8" data-labelPos="SW" data-marker="@interchange"><a href="http://example.com/">Restauradores</a></li>
-            <li data-coords="33.75,26.75"></li>
-            <li data-coords="35,26.75" data-labelPos="N"><a href="http://example.com/">Terreiro do Paço</a></li>
-            <li data-coords="38,26.75" data-labelPos="S" data-marker="interchange"><a href="http://example.com/">Santa Apolónia</a></li>
+            <li data-coords="3,6" data-labelPos="NW" data-marker="interchange"><a href="#pt-ml-rb">Reboleira</a></li>
+            <li data-coords="5.25,6" data-labelPos="S"><a href="#pt-ml-as">Amadora-Este</a></li>
+            <li data-coords="7.5,6" data-labelPos="N"><a href="#pt-ml-af">Alfornelos</a></li>
+            <li data-coords="9,6" data-dir="NE"></li> 
+            <li data-coords="9.35,6.1" data-labelPos="NE" data-marker="@station"><a href="#pt-ml-po">Pontinha</a></li> 
+            <li data-coords="10.53,7.15" data-labelPos="NE" data-marker="@station"><a href="#pt-ml-ca">Carnide</a></li>
+            <li data-coords="11.63,8.3" data-labelPos="NE" data-marker="@station"><a href="#pt-ml-cm">Colégio Militar-Luz</a></li> 
+            <li data-coords="12.83,9.55" data-labelPos="NE" data-marker="@station"><a href="#pt-ml-ah">Alto dos Moinhos</a></li> 
+            <li data-coords="13.87,10.65" data-labelPos="NE" data-marker="@station"><a href="#pt-ml-la">Laranjeiras</a></li> 
+            <li data-coords="14.5,12" data-labelPos="NE" data-marker="@interchange" data-markerInfo="h2"><a href="#pt-ml-jz">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jardim Zoológico</a></li> 
+            <li data-coords="16.55,13.5" data-labelPos="SW" data-marker="@station"><a href="#pt-ml-pe">Praça de Espanha</a></li>            
+            <li data-coords="19.4,16.5" data-labelPos="SW" data-marker="@station"><a href="#pt-ml-pa">Parque</a></li>           
+            <li data-coords="22.15,19.4" data-labelPos="NE" data-marker="@station"><a href="#pt-ml-av">Avenida</a></li>           
+            <li data-coords="23.5,20.8" data-labelPos="SW" data-marker="@interchange"><a href="#pt-ml-re">Restauradores</a></li>
+            <li data-coords="26.75,23.75"></li>
+            <li data-coords="28,23.75" data-labelPos="N"><a href="#pt-ml-tp">Terreiro do Paço</a></li>
+            <li data-coords="31,23.75" data-labelPos="S" data-marker="interchange"><a href="#pt-ml-sp">Santa Apolónia</a></li>
         </ul>
         <ul data-color="#FAB914" data-label="Linha Amarela">
-            <li data-coords="27,23" data-labelPos="W"><a href="http://example.com/">Rato</a></li>
-            <li data-coords="28,22" data-dir="E"></li>
-            <li data-coords="28,21.2" data-labelPos="SW" data-marker="interchange"><a href="http://example.com/">Marquês de Pombal</a></li>
-            <li data-coords="28,19.5" data-labelPos="E"><a href="http://example.com/">Picoas</a></li>
-            <li data-coords="28,16.5" data-labelPos="W"><a href="http://example.com/">Campo Pequeno</a></li>
-            <li data-coords="28,15" data-labelPos="SW" data-marker="interchange"><a href="http://example.com/">Entre Campos</a></li>
-            <li data-coords="28,13" data-labelPos="W"><a href="http://example.com/">Cidade Universitária</a></li>
-            <li data-coords="28,9.5" data-labelPos="E"><a href="http://example.com/">Quinta das Conchas</a></li>
-            <li data-coords="28,8" data-labelPos="E"><a href="http://example.com/">Lumiar</a></li>
-            <li data-coords="28,6.5" data-labelPos="E"><a href="http://example.com/">Ameixoeira</a></li>
-            <li data-coords="28,5" data-labelPos="E"><a href="http://example.com/">Senhor Roubado</a></li>
-            <li data-coords="28,3.5" data-labelPos="E"><a href="http://example.com/">Odivelas</a></li>
+            <li data-coords="20,20" data-labelPos="W"><a href="#pt-ml-ra">Rato</a></li>
+            <li data-coords="21,19" data-dir="E"></li>
+            <li data-coords="21,18.2" data-labelPos="SW" data-marker="interchange"><a href="#pt-ml-mp">Marquês de Pombal</a></li>
+            <li data-coords="21,16.5" data-labelPos="E"><a href="#pt-ml-pi">Picoas</a></li>
+            <li data-coords="21,13.5" data-labelPos="W"><a href="#pt-ml-cp">Campo Pequeno</a></li>
+            <li data-coords="21,12" data-labelPos="SW" data-marker="interchange"><a href="#pt-ml-ec">Entre Campos</a></li>
+            <li data-coords="21,10" data-labelPos="W"><a href="#pt-ml-cu">Cidade Universitária</a></li>
+            <li data-coords="21,6.5" data-labelPos="E"><a href="#pt-ml-qc">Quinta das Conchas</a></li>
+            <li data-coords="21,5" data-labelPos="E"><a href="#pt-ml-lu">Lumiar</a></li>
+            <li data-coords="21,3.5" data-labelPos="E"><a href="#pt-ml-ax">Ameixoeira</a></li>
+            <li data-coords="21,2" data-labelPos="E"><a href="#pt-ml-sr">Senhor Roubado</a></li>
+            <li data-coords="21,0.5" data-labelPos="E"><a href="#pt-ml-od">Odivelas</a></li>
         </ul>
         <ul data-color="#00A0A5" data-label="Linha Verde">
-            <li data-coords="30,26.75" data-labelPos="N" data-marker="interchange"><a href="http://example.com/">Cais do Sodré</a></li>
-            <li data-coords="31,26.75"></li>
-            <li data-coords="32,26" data-dir="E"></li>                       
-            <li data-coords="32,25.35" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Baixa-Chiado</a></li>                     
-            <li data-coords="32,23.9" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Rossio</a></li>                     
-            <li data-coords="32,22.8" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Martim Moniz</a></li>                     
-            <li data-coords="32,21.7" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Intendente</a></li>                     
-            <li data-coords="32,20.6" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Anjos</a></li>                     
-            <li data-coords="32,19.5" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Arroios</a></li>
-            <li data-coords="32,16" data-labelPos="E"><a href="http://example.com/">Areeiro</a></li>
-            <li data-coords="32,14" data-labelPos="E"><a href="http://example.com/">Roma</a></li>
-            <li data-coords="32,12" data-labelPos="E"><a href="http://example.com/">Alvalade</a></li>
-            <li data-coords="31,11" data-dir="N"></li>
-            <li data-coords="28,11" data-labelPos="NE" data-marker="interchange"><a href="http://example.com/">Campo Grande</a></li>
-            <li data-coords="26,11" data-labelPos="N"><a href="http://example.com/">Telheiras</a></li>
+            <li data-coords="23,23.75" data-labelPos="N" data-marker="interchange"><a href="#pt-ml-cs">Cais do Sodré</a></li>
+            <li data-coords="24,23.75"></li>
+            <li data-coords="25,23" data-dir="E"></li>                       
+            <li data-coords="25,22.35" data-labelPos="E" data-marker="@station"><a href="#pt-ml-bc">Baixa-Chiado</a></li>                     
+            <li data-coords="25,20.9" data-labelPos="E" data-marker="@station"><a href="#pt-ml-ro">Rossio</a></li>                     
+            <li data-coords="25,19.8" data-labelPos="E" data-marker="@station"><a href="#pt-ml-mm">Martim Moniz</a></li>                     
+            <li data-coords="25,18.7" data-labelPos="E" data-marker="@station"><a href="#pt-ml-in">Intendente</a></li>                     
+            <li data-coords="25,17.6" data-labelPos="E" data-marker="@station"><a href="#pt-ml-an">Anjos</a></li>                     
+            <li data-coords="25,16.5" data-labelPos="E" data-marker="@station"><a href="#pt-ml-ar">Arroios</a></li>
+            <li data-coords="25,13" data-labelPos="E"><a href="#pt-ml-ae">Areeiro</a></li>
+            <li data-coords="25,11" data-labelPos="E"><a href="#pt-ml-rm">Roma</a></li>
+            <li data-coords="25,9" data-labelPos="E"><a href="#pt-ml-al">Alvalade</a></li>
+            <li data-coords="24,8" data-dir="N"></li>
+            <li data-coords="21,8" data-labelPos="SE" data-marker="interchange"><a href="#pt-ml-cg">Campo Grande</a></li>
+            <li data-coords="19,8" data-labelPos="N"><a href="#pt-ml-te">Telheiras</a></li>
         </ul>
         <ul data-color="#E6196E" data-label="Linha Vermelha">
-            <li data-coords="25,18" data-labelPos="SW" data-marker="station"><a href="http://example.com/">São Sebastião</a></li>
-            <li data-coords="28,18" data-labelPos="NE" data-marker="station"><a href="http://example.com/">Saldanha</a></li>
-            <li data-coords="32,18" data-labelPos="SE" data-marker="station"><a href="http://example.com/">Alameda</a></li>
-            <li data-coords="34,18"></li>
-            <li data-coords="34.6,17.75" data-labelPos="NW" data-marker="@station"><a href="http://example.com/">Olaias</a></li>
-            <li data-coords="35.5,16.75" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Bela Vista</a></li>
-            <li data-coords="36.5,15.5" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Chelas</a></li>
-            <li data-coords="37.55,14.2" data-labelPos="E" data-marker="@station"><a href="http://example.com/">Olivais</a></li> 
-            <li data-coords="39.5,13" data-labelPos="SE" data-marker="@station"><a href="http://example.com">Cabo Ruivo</a></li>
-            <li data-coords="39,13"></li>
-            <li data-coords="39.5,13"></li>
-            <li data-coords="40.5,12" data-dir="E"></li>
-            <li data-coords="40.5,11" data-marker="interchange" data-labelPos="W"><a href="http://example.com/">Oriente</a></li>
-            <li data-coords="40.5,10"></li>
-            <li data-coords="39.5,9"></li>
-            <li data-coords="38.5,9" data-labelPos="N"><a href="http://example.com/">Moscavide</a></li>
-            <li data-coords="36.25,9" data-labelPos="S"><a href="http://example.com/">Encarnação</a></li>
-            <li data-coords="34,9" data-labelPos="NW"><a href="http://example.com/">Aeroporto</a></li>
+            <li data-coords="18,15" data-labelPos="SW" data-marker="station"><a href="#pt-ml-ss">São Sebastião</a></li>
+            <li data-coords="21,15" data-labelPos="NE" data-marker="station"><a href="#pt-ml-sa">Saldanha</a></li>
+            <li data-coords="25,15" data-labelPos="SE" data-marker="station"><a href="#pt-ml-am">Alameda</a></li>
+            <li data-coords="27,15"></li>
+            <li data-coords="27.6,14.75" data-labelPos="NW" data-marker="@station"><a href="#pt-ml-ol">Olaias</a></li>
+            <li data-coords="28.5,13.75" data-labelPos="E" data-marker="@station"><a href="#pt-ml-bv">Bela Vista</a></li>
+            <li data-coords="29.5,12.5" data-labelPos="E" data-marker="@station"><a href="#pt-ml-ch">Chelas</a></li>
+            <li data-coords="30.55,11.2" data-labelPos="E" data-marker="@station"><a href="#pt-ml-os">Olivais</a></li> 
+            <li data-coords="32.5,10" data-labelPos="SE" data-marker="@station"><a href="#pt-ml-cr">Cabo Ruivo</a></li>
+            <li data-coords="32,10"></li>
+            <li data-coords="32.5,10"></li>
+            <li data-coords="33.5,9" data-dir="E"></li>
+            <li data-coords="33.5,8" data-marker="interchange" data-labelPos="W"><a href="#pt-ml-or">Oriente</a></li>
+            <li data-coords="33.5,7"></li>
+            <li data-coords="32.5,6"></li>
+            <li data-coords="31.5,6" data-labelPos="N"><a href="#pt-ml-mo">Moscavide</a></li>
+            <li data-coords="29.25,6" data-labelPos="S"><a href="#pt-ml-en">Encarnação</a></li>
+            <li data-coords="27,6" data-labelPos="NW"><a href="#pt-ml-ap">Aeroporto</a></li>
         </ul>
     </div>
     <div id="legend"></div>
     <script type="text/javascript">
     $(".subway-map").subwayMap();
+
+    var elements = document.getElementsByTagName('a');
+    for(var i = 0, len = elements.length; i < len; i++) {
+        console.log(elements[i]);
+        elements[i].addEventListener('click', function (event) {
+            if(event.target.href.split("#")[1] != "") {
+                window.alert(event.target.href.split("#")[1]);
+            }
+            event.preventDefault();
+            return false;
+        }, false);
+    }
     </script>
 </body>
 
