@@ -72,7 +72,6 @@ THE SOFTWARE.
             var ratio = 3;
             var width = canvas[0].width ||
                         canvas[0].clientWidth;
-                        console.log(width);
             var height = canvas[0].height ||
                         canvas[0].clientHeight;
             canvas[0].width = Math.round(width * ratio);
