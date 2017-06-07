@@ -60,19 +60,29 @@ THE SOFTWARE.
     },
     _getCanvasLayer: function (el, overlay) {
         this.layer++;
-        var canvas = $("<canvas style='position:absolute;z-Index:" + ((overlay ? 2000 : 1000) + this.layer) + "' width='" + this.options.pixelWidth + "' height='" + this.options.pixelHeight + "'></canvas>");
+        var canvas;
+        // lazy canvas instantiation
+        if (this.mapCanvas == null) {
+            canvas = $("<canvas style='position:absolute;z-Index:" + ((overlay ? 2000 : 1000) + this.layer) + "' width='" + this.options.pixelWidth + "' height='" + this.options.pixelHeight + "'></canvas>");
+        } else {
+            canvas = this.mapCanvas;
+        }
         var context = canvas[0].getContext("2d");
-        var ratio = 3;
-        var width = canvas[0].width ||
-                    canvas[0].clientWidth;
-        var height = canvas[0].height ||
-                     canvas[0].clientHeight;
-        canvas[0].width = Math.round(width * ratio);
-        canvas[0].height = Math.round(height * ratio);
-        canvas[0].style.width = width + 'px';
-        canvas[0].style.height = height + 'px';
-        context.scale(ratio, ratio);
-        el.append(canvas);
+        if (this.mapCanvas == null) {
+            var ratio = 3;
+            var width = canvas[0].width ||
+                        canvas[0].clientWidth;
+                        console.log(width);
+            var height = canvas[0].height ||
+                        canvas[0].clientHeight;
+            canvas[0].width = Math.round(width * ratio);
+            canvas[0].height = Math.round(height * ratio);
+            canvas[0].style.width = width + 'px';
+            canvas[0].style.height = height + 'px';
+            context.scale(ratio, ratio);
+            el.append(canvas);
+            this.mapCanvas = canvas;
+        }
         return context;
     },
     _render: function (el) {
