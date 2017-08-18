@@ -430,13 +430,17 @@ THE SOFTWARE.
             case "se":
                 pos = "text-align: left; margin:" + offsetDiag + "px 0 0 " + offsetDiag + "px";
                 break;
-            case "ne":
+                case "ne":
                 pos = "text-align: left; padding-left: " + offsetDiag + "px; margin: 0 0 " + offsetDiag + "px 0";
                 topOffset = offsetDiag * 2;
                 break;
             case "sw":
                 pos = "text-align: right; margin:" + offsetDiag + "px 0 0 -" + (150 + offsetDiag) + "px";
                 topOffset = offsetDiag;
+                break;
+            case "sw-alt":
+                pos = "text-align: right; margin:" + offsetDiag + "px 0 0 -" + (150 + offsetDiag) + "px";
+                topOffset = -offsetDiag;
                 break;
             case "nw":
                 pos = "text-align: right; margin: -" + offsetDiag + "px 0 0 -" + (150 + offsetDiag) + "px";
